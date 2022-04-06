@@ -1,6 +1,6 @@
 # Welcome!
 
-This is the knowledge base for the XCollective Community. We gather information about new technologies, open source repositories, and products/services and share that information here.
+This is the knowledge base for the XCollective. We are a community who gather information about new technologies, open source repositories, and products/services and share that information here.
 
 We strive to support each other in exploring these new technologies and leveraging them to build future products and services.
 
