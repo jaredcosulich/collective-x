@@ -1,6 +1,7 @@
 [book]
-authors = ["Jared Cosulich"]
+authors = ["XCollective"]
 language = "en"
 multilingual = false
 src = "src"
-title = "X Collective"
+title = "XCollective Knowledge Base"
+description = "The accumulated knowledge of the XCollective community."
