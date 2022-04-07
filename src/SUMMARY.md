@@ -13,6 +13,7 @@
     - [Aptos](crypto/layer-1/aptos.md)
     - [Near](crypto/layer-1/near.md)
     - [Ethereum](crypto/layer-1/ethereum.md)
+    - [Arweave](crypto/layer-1/arweave.md)
     - [XMTP](crypto/layer-1/xmtp.md)
   - [Layer 2](crypto/layer-2.md)
     - [ZKSync](crypto/layer-2/zksync.md)
@@ -27,3 +28,5 @@
 # Interesting Products
 
 - [Warp](products/warp.md)
+
+# Misc Pages
