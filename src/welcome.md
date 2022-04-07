@@ -4,28 +4,12 @@ This is the knowledge base for the XCollective Community. We gather information 
 
 We strive to support each other in exploring these new technologies and leveraging them to build future products and services.
 
-Please come join us and contribute to this growing resource!
+## Contributing
 
-[How to contribute]()
+Read through this book and contribute where you can. Valuable contributors to this shared knowledge base are invited to join the XCollective community.
 
-## Categories
+[How To Contribute](how-to-contribute.md)
 
-#### Technologies
+## Exploring
 
-- [Crypto / Web3](categories/crypto.md)
-  - [Languages](crypto/languages.md)
-    - [Move]()
-  - [Layer 1](crypto/layer1.md)
-    - [Sui]()
-    - [Aptos]()
-    - [Near]()
-    - [Ethereum]()
-  - [Layer 2]()
-    - [ZKSync (Ethereum)]()
-
-#### Open Source Repositories
-
-#### Interesting Products / Services
-
-- [Warp]()
-  - A modern-day CLI
+All of the content is represented in the navigation on the left. You can also search for specific topics by clicking the magnifying glass icon above.

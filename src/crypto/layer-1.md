@@ -1,6 +1,6 @@
-# Crypto / Web 3
+# Layer 1
 
-The crypto / web3 space is exploding. There are so many new technologies to keep up with. We're collaboratively sharing our learnings about these technologies here.
+Layer 1
 
 Feel free to suggest a new technology in the community Discord or in the [Github Discussions](https://github.com/jaredcosulich/x-collective/discussions).
 
