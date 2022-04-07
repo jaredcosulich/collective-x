@@ -8,6 +8,7 @@
 - [Crypto / Web3](categories/crypto.md)
   - [Languages](crypto/languages.md)
     - [Move](crypto/language/move.md)
+    - [Solidity](crypto/language/solidity.md)
   - [Layer 1](crypto/layer-1.md)
     - [Sui](crypto/layer-1/sui.md)
     - [Aptos](crypto/layer-1/aptos.md)
