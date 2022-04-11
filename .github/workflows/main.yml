@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: Discord Webhook Action
-        run: echo "There's a thing in my code!"
+        run: echo ${{ github.event.head_commit.message }}
         # uses: tsickert/discord-webhook@v4.0.0
         # with:
         #   webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
