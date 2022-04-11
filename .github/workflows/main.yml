@@ -32,45 +32,29 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: book
 
-  send-to-discord:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Discord Webhook Action
-        # uses: tsickert/discord-webhook@v4.0.0
-        # with:
-        #   webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        #   content: "Test"
-        run: |
-          echo ${{ github.event.head_commit.message }}
-          echo git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }}
-
-  changedfiles:
+  diff:
     runs-on: ubuntu-latest
     # Map a step output to a job output
     outputs:
-      all: ${{ steps.changes.outputs.all}}
-      md: ${{ steps.changes.outputs.md }}
+      diff: ${{ steps.changes.outputs.diff}}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       # Make sure we have some code to diff.
-      - name: Get changed files
-        id: changes
+      - name: Get diff
+        id: diff
         # Set outputs using the command.
         run: |
-          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
-          echo "::set-output name=md::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .md$ | xargs)"
+          echo "::set-output name=diff::$(git diff)"
 
-  lint:
+  send-to-discord:
     runs-on: ubuntu-latest
-    # require the first job to have ran
-    needs: changedfiles
-    # only run there are changed files
-    if: ${{needs.changedfiles.outputs.md}}
+
+    needs: diff
+
     steps:
-      - name: echo changed files
-        run: echo ${{needs.changedfiles.outputs.md}}
+      - name: Discord Webhook Action
+        uses: tsickert/discord-webhook@v4.0.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          content: "${{ github.event.head_commit.message }}\n\n```diff${{ needs.diff.output.diff }}```"
