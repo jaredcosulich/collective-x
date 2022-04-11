@@ -1,16 +1,16 @@
 [book]
-authors = ["XCollective"]
+authors = ["CollectiveX"]
 language = "en"
 multilingual = false
 src = "src"
-title = "XCollective Knowledge Base"
-description = "The accumulated knowledge of the XCollective community."
+title = "CollectiveX Knowledge Base"
+description = "The accumulated knowledge of the CollectiveX community."
 
 [output.html]
 mathjax-support = true
-site-url = "/x-collective/"
-git-repository-url = "https://github.com/jaredcosulich/x-collective/tree/main"
-edit-url-template = "https://github.com/jaredcosulich/x-collective/edit/main/{path}"
+site-url = "/collective-x/"
+git-repository-url = "https://github.com/jaredcosulich/collective-x/tree/main"
+edit-url-template = "https://github.com/jaredcosulich/collective-x/edit/main/{path}"
 
 [output.html.playground]
 editable = true

@@ -1,4 +1,4 @@
-# XCollective Knowledge Base
+# CollectiveX Knowledge Base
 
 Please contribute to this knowledge base exploring new technologies.
 
