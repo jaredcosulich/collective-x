@@ -37,7 +37,12 @@ jobs:
 
     steps:
       - name: Discord Webhook Action
-        run: echo ${{ github.event.head_commit.message }}
+        run: |
+          echo ${{ github.event.head_commit.message }}
+          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
+          echo "::set-output name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ts$ | xargs)"
+          echo ${{needs.changedfiles.outputs.ts}}
+
         # uses: tsickert/discord-webhook@v4.0.0
         # with:
         #   webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
