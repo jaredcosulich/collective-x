@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     # Map a step output to a job output
     outputs:
-      diff: ${{ steps.changes.outputs.diff}}
+      diff: ${{ steps.diff_step.outputs.diff}}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -53,6 +53,9 @@ jobs:
     needs: diff
 
     steps:
+      - name: Echo
+        run: |
+          echo "${{ needs.diff.output.diff }}""
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v4.0.0
         with:
