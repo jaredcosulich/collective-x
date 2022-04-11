@@ -11,6 +11,8 @@ Move is a language that was developed at Facebook (now Meta).
 - [Official Move Documentation](https://github.com/diem/move/blob/main/language/documentation/book/src/introduction.md)
 - [A Move Tutorial](https://github.com/diem/move/tree/main/language/documentation/tutorial)
   - It's a little confusing, but not bad
+- [Another Move Tutorial](https://mirror.xyz/magnum6.eth/kgZUk_kXg81AYQs5N5RygpjoK0OqAiH7TWRikznLcjg)
+  - More article-based  
 - [Good talk about Move from one of the creators.](https://youtu.be/Bjvb8A28Tec?t=814)
 
 ### Aspects
