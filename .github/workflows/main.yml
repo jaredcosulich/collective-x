@@ -49,7 +49,7 @@ jobs:
     # Map a step output to a job output
     outputs:
       all: ${{ steps.changes.outputs.all}}
-      ts: ${{ steps.changes.outputs.ts }}
+      md: ${{ steps.changes.outputs.md }}
     steps:
       # Make sure we have some code to diff.
       - name: Checkout repository
