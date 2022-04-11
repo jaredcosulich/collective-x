@@ -36,6 +36,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Discord Webhook Action
         # uses: tsickert/discord-webhook@v4.0.0
         # with:
@@ -44,8 +47,6 @@ jobs:
         run: |
           echo ${{ github.event.head_commit.message }}
 
-      - name: Checkout repository
-        uses: actions/checkout@v2
       - name: Get changed files
         id: changes
         # Set outputs using the command.
@@ -61,4 +62,4 @@ jobs:
     if: ${{needs.changedfiles.outputs.ts}}
     steps:
       - name: echo changed files
-        run: echo ${{needs.changedfiles.outputs.ts}
+        run: echo ${{needs.changedfiles.outputs.ts}}
