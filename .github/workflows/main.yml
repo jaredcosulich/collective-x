@@ -46,7 +46,14 @@ jobs:
         # Set outputs using the command.
         run: |
           git diff
-          echo "::set-output name=diff_text::$(git diff)"
+          echo "::set-output name=diff_text::$('YO')"
+
+  - name: Test Cancelled
+    uses: rjstone/discord-webhook-notify@v1
+    with:
+        severity: warn
+        details: Test Cancelled!
+        webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
 
   send-to-discord:
     runs-on: ubuntu-latest
