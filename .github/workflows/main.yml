@@ -48,6 +48,7 @@ jobs:
           \`\`\`
 
           [$(git diff --name-only)](http://www.example.com)
+
           EOF
           )
           echo "DIFF<<EOF" >> $GITHUB_ENV
