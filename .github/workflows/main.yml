@@ -47,7 +47,7 @@ jobs:
         run: |
           git fetch origin main
           git diff origin/main..HEAD > mydiff
-          echo "::set-output name=test::$(mydiff)"
+          echo "::set-output name=test::$(git diff origin/main..HEAD)"
 
       - id: step2
         run: echo "::set-output name=test::hello"
