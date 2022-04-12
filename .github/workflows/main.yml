@@ -77,7 +77,7 @@ jobs:
 
       - name: Set Env Variable
         run: |
-          MY_STRING=$(git show --format=format:'%an: %s' | sed -e 's/^+++ b\//```\n\nFile: /' -e '/^---.*$/d' -e 's/^@@.*$/\n```diff/' -e '/^diff.*$/d' -e 's/^index.*$//')
+          MY_STRING=$(git show --format=format:'%an: %s' | sed -e 's/^+++ b\//File: /' -e '/^---.*$/d' -e 's/^@@.*$/\n```\n\n```diff/' -e '/^diff.*$/d' -e 's/^index.*$//')
           MY_STRING=$(cat << EOF
           $MY_STRING
           \`\`\`
@@ -91,4 +91,4 @@ jobs:
         uses: tsickert/discord-webhook@v4.0.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: "HI ${{ env.MY_STRING }}"
+          content: "${{ env.MY_STRING }}"
