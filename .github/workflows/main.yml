@@ -32,30 +32,27 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: book
 
-  build:
+  diff:
     runs-on: ubuntu-latest
     outputs:
-      build_id: ${{ steps.build_step.outputs.build_id }}
+      output1: ${{ steps.step1.outputs.test }}
+      output2: ${{ steps.step2.outputs.test }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Build
-        id: build_step
-        run: |
-          ./build
-          echo "::set-output name=build_id::$BUILD_ID"
+      - id: step1
+        run: echo "::set-output name=test::hello"
+      - id: step2
+        run: echo "::set-output name=test::world"
 
   send-to-discord:
     runs-on: ubuntu-latest
-
-    needs: build
-
+    needs: diff
     steps:
       - name: Echo
         run: |
-          echo "DIFF ${{ needs.build.output.build_id }}"
+          echo "DIFF ${{needs.diff.outputs.output1}} ${{needs.diff.outputs.output2}}"
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v4.0.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: "HI ${{ needs.build.output.build_id }}"
+          content: "HI ${{needs.diff.outputs.output1}} ${{needs.diff.outputs.output2}}"
           # content: "${{ github.event.head_commit.message }}\n\n```diff\nSome Code\n```"
