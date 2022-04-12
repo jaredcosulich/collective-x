@@ -35,24 +35,24 @@ jobs:
   diff:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.diff.outputs.test }}
-      output2: ${{ steps.step1.outputs.test }}
-      output3: ${{ steps.step2.outputs.test }}
+      output1: ${{ steps.step1.outputs.test }}
+      output2: ${{ steps.step2.outputs.test }}
+      output3: ${{ steps.step3.outputs.test }}
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v2
 
-      - id: diff
+      - id: step1
         shell: bash
         run: |
           git fetch origin main
-          git diff origin/main..HEAD > mydiff
+          git diff origin/main..HEAD
           echo "::set-output name=test::$(git diff origin/main..HEAD)"
 
-      - id: step1
+      - id: step2
         run: echo "::set-output name=test::hello"
 
-      - id: step2
+      - id: step3
         run: echo "::set-output name=test::world"
 
   send-to-discord:
