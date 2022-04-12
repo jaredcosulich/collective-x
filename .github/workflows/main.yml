@@ -78,7 +78,11 @@ jobs:
           third line
           EOF
           )
-          MY_STRING="$MY_STRING \nfourth line"
+          MY_STRING=$(cat << EOF
+          $MY_STRING
+          ```
+          EOF
+          )
           echo "MY_STRING<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
