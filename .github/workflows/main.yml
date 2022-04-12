@@ -36,8 +36,9 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       output1: ${{ steps.step1.outputs.test }}
-      output2: ${{ steps.step2.outputs.test }}
-      output3: ${{ steps.step3.outputs.test }}
+      output2: ${{ steps.step1.outputs.test2 }}
+      output3: ${{ steps.step2.outputs.test }}
+      output4: ${{ steps.step3.outputs.test }}
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v2
@@ -47,8 +48,9 @@ jobs:
         run: |
           git fetch origin main
           git diff origin/main..HEAD > mydiff
-          echo "$mydiff"
-          echo "$(git diff origin/main..HEAD)"
+          echo "HIx $mydiff"
+          echo $(git diff origin/main..HEAD)
+          echo "::set-output name=test2::hello2"
           echo "::set-output name=test::$(git diff origin/main..HEAD)"
 
       - id: step2
