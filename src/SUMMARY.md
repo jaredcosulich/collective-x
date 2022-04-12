@@ -25,6 +25,7 @@
 
 # Open Source Repos
 
+- [Misc](open/misc.md)
 - [Foundry](crypto/tooling/foundry.md)
 
 # Interesting Products
