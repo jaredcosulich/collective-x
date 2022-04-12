@@ -49,12 +49,11 @@ jobs:
         shell: bash
         run: |
           git fetch origin main
-          git diff origin/main..HEAD > mydiff
-          echo "HIx $mydiff"
-          echo $(git diff origin/main..HEAD)
-          echo ${cat mydiff}
+          git diff origin/main..HEAD
+          git show ${{ github.event.before }}
+          echo $(git show ${{ github.event.before }})
           echo "::set-output name=test2::hello2"
-          echo "::set-output name=test::$(cat mydiff)"
+          echo "::set-output name=test::$(git show ${{ github.event.before }})"
 
       - id: step2
         run: echo "::set-output name=test::hello"
