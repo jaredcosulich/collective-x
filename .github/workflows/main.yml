@@ -50,10 +50,10 @@ jobs:
         run: |
           git fetch origin main
           git diff origin/main..HEAD
-          git show ${{ github.event.before }}
-          echo $(git show ${{ github.event.before }})
+          git show
+          echo $(git show)
           echo "::set-output name=test2::hello2"
-          echo "::set-output name=test::$(git show ${{ github.event.before }})"
+          echo "::set-output name=test::$(git show)"
 
       - id: step2
         run: echo "::set-output name=test::hello"
