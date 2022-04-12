@@ -49,12 +49,15 @@ jobs:
           echo "::set-output name=diff_text::$('YO')"
 
   cancel:
-    - name: Test Cancelled
-      uses: rjstone/discord-webhook-notify@v1
-      with:
-        severity: warn
-        details: Test Cancelled!
-        webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test Cancelled
+        uses: rjstone/discord-webhook-notify@v1
+        with:
+          severity: warn
+          details: Test Cancelled!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK_URL }}
 
   send-to-discord:
     runs-on: ubuntu-latest
