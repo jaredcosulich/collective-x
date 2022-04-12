@@ -34,7 +34,6 @@ jobs:
 
   send-to-discord:
     runs-on: ubuntu-latest
-    needs: diff
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v2
@@ -47,6 +46,8 @@ jobs:
           DIFF=$(cat << EOF
           $DIFF
           \`\`\`
+
+          [$(git diff --name-only)](http://www.example.com)
           EOF
           )
           echo "DIFF<<EOF" >> $GITHUB_ENV
