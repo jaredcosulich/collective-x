@@ -47,7 +47,9 @@ jobs:
           $DIFF
           \`\`\`
 
-          [$(git diff --name-only)](http://www.example.com)
+          [$(git show --format=format:'' --name-only)](https://www.example.com)
+
+          [Test](https://www.example.com)
 
           EOF
           )
