@@ -32,40 +32,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: book
 
-  diff:
-    runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.step1.outputs.test }}
-      output2: ${{ steps.step1.outputs.test2 }}
-      output3: ${{ steps.step2.outputs.test }}
-      output4: ${{ steps.step3.outputs.test }}
-    steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
-
-      - id: step1
-        shell: bash
-        run: |
-          MY_STRING=$(cat << EOF
-          first line
-          second line
-          third line
-          EOF
-          )
-          echo "MY_STRING<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-          echo "::set-output name=test2::hello2"
-          echo "::set-output name=test::$(git show --format=format:'%an: %s' | sed -e 's/^+++ b\//```\n\nFile: /' -e '/^---.*$/d' -e 's/^@@.*$/\n```diff/' -e '/^diff.*$/d' -e 's/^index.*$//' )\n\`\`\`"
-
-      - id: step2
-        run: echo "::set-output name=test::hello"
-
-      - id: step3
-        run: echo "::set-output name=test::world"
-
   send-to-discord:
     runs-on: ubuntu-latest
     needs: diff
@@ -77,18 +43,18 @@ jobs:
 
       - name: Set Env Variable
         run: |
-          MY_STRING=$(git show --format=format:'%an: %s' | sed -e 's/^+++ b\//File: /' -e '/^---.*$/d' -e 's/^@@.*$/\n```diff/' -e '/^diff.*$/d' -e 's/^index.*$//')
-          MY_STRING=$(cat << EOF
-          $MY_STRING
+          DIFF=$(git show --format=format:'%an: %s' | sed -e 's/^+++ b\//File: /' -e '/^---.*$/d' -e 's/^@@.*$/\n```diff/' -e '/^diff.*$/d' -e 's/^index.*$//')
+          DIFF=$(cat << EOF
+          $DIFF
           \`\`\`
           EOF
           )
-          echo "MY_STRING<<EOF" >> $GITHUB_ENV
-          echo "$MY_STRING" >> $GITHUB_ENV
+          echo "DIFF<<EOF" >> $GITHUB_ENV
+          echo "$DIFF" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v4.0.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: "${{ env.MY_STRING }}"
+          content: "${{ env.DIFF }}"
