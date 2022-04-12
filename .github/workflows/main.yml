@@ -48,6 +48,15 @@ jobs:
       - id: step1
         shell: bash
         run: |
+          MY_STRING=$(cat << EOF
+          first line
+          second line
+          third line
+          EOF
+          )
+          echo "MY_STRING<<EOF" >> $GITHUB_ENV
+          echo "$MY_STRING" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
           echo "::set-output name=test2::hello2"
           echo "::set-output name=test::$(git show --format=format:'%an: %s' | sed -e 's/^+++ b\//```\n\nFile: /' -e '/^---.*$/d' -e 's/^@@.*$/\n```diff/' -e '/^diff.*$/d' -e 's/^index.*$//' )\n\`\`\`"
 
@@ -63,7 +72,7 @@ jobs:
     steps:
       - name: Echo
         run: |
-          echo "DIFF ${{needs.diff.outputs.output1}} ${{needs.diff.outputs.output2}}"
+          echo "DIFF ${{needs.diff.outputs.output1}} ${{needs.diff.outputs.output2}} ${{ env.MY_STRING }}"
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v4.0.0
         with:
