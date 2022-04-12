@@ -38,6 +38,9 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
     steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
       - name: print-diff
         shell: bash
         run: |
@@ -45,8 +48,10 @@ jobs:
           git diff origin/main..HEAD > mydiff
           echo "mydiff = "
           cat mydiff
+
       - id: step1
         run: echo "::set-output name=test::hello"
+
       - id: step2
         run: echo "::set-output name=test::world"
 
