@@ -70,6 +70,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: diff
     steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
       - name: Set Env Variable
         run: |
           MY_STRING=$(git show --format=format:'%an: %s' | sed -e 's/^+++ b\//```\n\nFile: /' -e '/^---.*$/d' -e 's/^@@.*$/\n```diff/' -e '/^diff.*$/d' -e 's/^index.*$//')
@@ -81,9 +86,9 @@ jobs:
           echo "MY_STRING<<EOF" >> $GITHUB_ENV
           echo "$MY_STRING" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
+
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v4.0.0
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          content: "HI ${{needs.diff.outputs.output1}} ${{needs.diff.outputs.output2}} ${{ env.MY_STRING }}"
-          # content: "${{ github.event.head_commit.message }}\n\n```diff\nSome Code\n```"
+          content: "HI ${{ env.MY_STRING }}"
