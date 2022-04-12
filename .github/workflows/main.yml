@@ -47,7 +47,7 @@ jobs:
           $DIFF
           \`\`\`
 
-          [$(git show --format=format:'' --name-only)](https://www.example.com)
+          [$(git show --format=format:'' --name-only)](git show --format=format:'' --name-only | sed -e 's/src/https:\/\/book.collectivex.xyz/' -e 's/.md/.html/')
           EOF
           )
           echo "DIFF<<EOF" >> $GITHUB_ENV
