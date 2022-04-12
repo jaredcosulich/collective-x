@@ -48,9 +48,6 @@ jobs:
           \`\`\`
 
           [$(git show --format=format:'' --name-only)](https://www.example.com)
-
-          [Test](https://www.example.com)
-
           EOF
           )
           echo "DIFF<<EOF" >> $GITHUB_ENV
