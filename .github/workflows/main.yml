@@ -70,9 +70,17 @@ jobs:
     runs-on: ubuntu-latest
     needs: diff
     steps:
-      - name: Echo
+      - name: Set Env Variable
         run: |
-          echo "DIFF ${{needs.diff.outputs.output1}} ${{needs.diff.outputs.output2}} ${{ env.MY_STRING }}"
+          MY_STRING=$(cat << EOF
+          first line
+          second line
+          third line
+          EOF
+          )
+          echo "MY_STRING<<EOF" >> $GITHUB_ENV
+          echo "$MY_STRING" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
       - name: Discord Webhook Action
         uses: tsickert/discord-webhook@v4.0.0
         with:
