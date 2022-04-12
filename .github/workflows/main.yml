@@ -80,7 +80,7 @@ jobs:
           )
           MY_STRING=$(cat << EOF
           $MY_STRING
-          ```
+          \`\`\`
           EOF
           )
           echo "MY_STRING<<EOF" >> $GITHUB_ENV
