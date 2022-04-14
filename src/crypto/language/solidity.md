@@ -1,5 +1,10 @@
 # Solidity
 
+### Learning Resources
+
+- [Solidity by Example](https://solidity-by-example.org/)
+  - Great list of Solidity examples with detailed explanations
+
 ### Interesting ERCs
 
 - [ERC721a](https://www.erc721a.org/)
@@ -12,6 +17,7 @@
 ### Misc
 
 - [DethCode](https://github.com/dethcrypto/dethcode)
+
   - View any contract from Etherscan in a VSCode editor.
 
 - [NFTMintAndCheckToken](https://www.npmjs.com/package/nod-nft-mint-and-check-token)
