@@ -46,7 +46,7 @@ jobs:
           DIFF=$(cat << EOF
           $DIFF
           \`\`\`
-          View In Knowledge Base (might take a few minutes to load changes): 
+          View In Knowledge Base (might take a few minutes to reflect changes): 
           [$(git show --format=format:'' --name-only | sed -e 's/src/https:\/\/book.collectivex.xyz/' -e 's/.md/.html/')]($(git show --format=format:'' --name-only | sed -e 's/src/https:\/\/book.collectivex.xyz/' -e 's/.md/.html/'))
           EOF
           )
