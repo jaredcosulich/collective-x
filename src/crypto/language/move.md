@@ -8,7 +8,7 @@ Move is a language that was developed at Facebook (now Meta).
   - A very robust listing of resources including some of the links below.
 - [Move Book](https://move-book.com/index.html)
   - A volunteer effort from one of the original team members
-- [Official Move Documentation](https://github.com/diem/move/blob/main/language/documentation/book/src/introduction.md)
+- [Official Move Documentation](https://diem.github.io/move/)
 - [A Move Tutorial](https://github.com/diem/move/tree/main/language/documentation/tutorial)
   - Official From [Sui](https://sui.io/)
   - It's a little confusing, but not bad
