@@ -112,6 +112,8 @@ Where does Currency come from? Is it inferred from Currency1/2? Or is it a gener
 
 It is (next paragraph): In this example, struct Coin<Currency> is generic on the Currency type parameter, which specifies the currency of the coin and allows code to be written either generically on any currency or concretely on a specific currency. This genericity applies even when the Currency type parameter does not appear in any of the fields defined in Coin.
 
+---
+
 I'm really not sure what this section means:
 [https://diem.github.io/move/generics.html#phantom-type-parameters](https://diem.github.io/move/generics.html#phantom-type-parameters)
 
