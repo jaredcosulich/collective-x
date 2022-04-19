@@ -130,3 +130,10 @@ Why does this still say "drop" in the "copy" example?
 [https://diem.github.io/move/standard-library.html#functions-2](https://diem.github.io/move/standard-library.html#functions-2)
 
 What is going on here? You pass in a u64 and get another u64 back?
+  
+---
+  
+https://diem.github.io/move/packages.html#usage-artifacts-and-data-structures
+
+Still really unclear how names work
+
