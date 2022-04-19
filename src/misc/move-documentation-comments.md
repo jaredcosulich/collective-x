@@ -1,5 +1,7 @@
 # Move Documentation Comments
 
+This page is very rough and needs to be cleaned up.
+
 Running comments/questions about the official Move documentation:
 
 [Official Move Documentation](https://diem.github.io/move/)
