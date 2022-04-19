@@ -22,6 +22,8 @@
     - [LayerZero](crypto/layer-2/layer-zero.md)
   - [Tooling](crypto/tooling.md)
     - [Foundry](crypto/tooling/foundry.md)
+  - [Concepts](crypto/concepts.md)
+    - [Wallets](crypto/concepts/wallets.md)
 
 # Open Source Repos
 
