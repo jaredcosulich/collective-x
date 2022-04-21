@@ -25,3 +25,13 @@ Move is a language that was developed at Facebook (now Meta).
 - Functional programming language
 
 - Based on ideas from Rust, etc (looks similar to Rust but is different)
+
+### Move Implementations
+
+Different blockchain efforts are implementing Move differently, especially around the standard library (Std::)
+
+Information that has been gathered about each effort can be found on the blockchain page.
+
+- [Sui Move](../layer_1/sui.md)
+
+
